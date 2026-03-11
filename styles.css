@@ -225,17 +225,18 @@ body {
 
 .team-visual {
   width: 100%;
-  min-height: 220px;
+  min-height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 12px;
 }
 
 .team-logo {
-  max-width: 220px;
-  max-height: 180px;
-  width: auto;
-  height: auto;
+  max-width: 320px;
+  max-height: 260px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.28));
   pointer-events: none;
