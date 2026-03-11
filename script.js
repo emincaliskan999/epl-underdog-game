@@ -124,7 +124,7 @@ function handleSelection(side) {
   }
 
   if (currentIndex === matches.length - 1) {
-    setTimeout(showFinalScreen, 1500);
+    setTimeout(showFinalScreen, 2800);
   } else {
     nextButton.classList.remove('hidden');
   }
