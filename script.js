@@ -43,24 +43,15 @@ let hasAnswered = false;
 
 const teamAButton = document.getElementById('teamAButton');
 const teamBButton = document.getElementById('teamBButton');
-
-const teamAName = document.getElementById('teamAName');
-const teamBName = document.getElementById('teamBName');
-const teamANameBack = document.getElementById('teamANameBack');
-const teamBNameBack = document.getElementById('teamBNameBack');
-
 const teamALogo = document.getElementById('teamALogo');
 const teamBLogo = document.getElementById('teamBLogo');
-
 const teamAOdds = document.getElementById('teamAOdds');
 const teamBOdds = document.getElementById('teamBOdds');
-
 const roundNumber = document.getElementById('roundNumber');
 const progressText = document.getElementById('progressText');
 const progressFill = document.getElementById('progressFill');
 const feedbackBox = document.getElementById('feedbackBox');
 const nextButton = document.getElementById('nextButton');
-
 const gameScreen = document.getElementById('gameScreen');
 const endScreen = document.getElementById('endScreen');
 const finalScore = document.getElementById('finalScore');
@@ -92,11 +83,6 @@ function loadMatch() {
   roundNumber.textContent = currentIndex + 1;
   progressText.textContent = `Match ${currentIndex + 1} / ${matches.length}`;
   progressFill.style.width = `${((currentIndex + 1) / matches.length) * 100}%`;
-
-  teamAName.textContent = match.teamA;
-  teamBName.textContent = match.teamB;
-  teamANameBack.textContent = match.teamA;
-  teamBNameBack.textContent = match.teamB;
 
   teamALogo.src = match.logoA;
   teamBLogo.src = match.logoB;
@@ -132,7 +118,6 @@ function handleSelection(side) {
   } else {
     chosenButton.classList.add('wrong');
     correctButton.classList.add('correct');
-
     const correctTeam = match.correct === 'A' ? match.teamA : match.teamB;
     feedbackBox.textContent = `${correctTeam} was the underdog with the higher odds.`;
     feedbackBox.className = 'feedback-box bad';
