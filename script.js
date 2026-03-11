@@ -2,8 +2,8 @@ const matches = [
   {
     teamA: 'The MongolZ',
     teamB: 'Natus Vincere',
-    logoA: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/7d/The_MongolZ_logo.svg/512px-The_MongolZ_logo.svg.png',
-    logoB: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/fc/NAVI_Logo.svg/512px-NAVI_Logo.svg.png',
+    logoA: 'https://liquipedia.net/commons/images/2/2b/The_MongolZ_2024_03_allmode.png',
+    logoB: 'https://liquipedia.net/commons/images/3/3f/Natus_Vincere_2021_lightmode.png',
     oddsA: 2.207,
     oddsB: 1.69,
     correct: 'A'
@@ -11,8 +11,8 @@ const matches = [
   {
     teamA: 'Legacy',
     teamB: 'Aurora Gaming',
-    logoA: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/89/Legacy_logo.png/512px-Legacy_logo.png',
-    logoB: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d6/Aurora_Gaming_logo.svg/512px-Aurora_Gaming_logo.svg.png',
+    logoA: 'https://liquipedia.net/commons/images/9/98/Legacy_full_lightmode.png',
+    logoB: 'https://liquipedia.net/commons/images/3/32/Aurora_Gaming_2025_full_allmode.png',
     oddsA: 2.02,
     oddsB: 1.81,
     correct: 'A'
@@ -20,8 +20,8 @@ const matches = [
   {
     teamA: 'FUT Esports',
     teamB: 'MOUZ',
-    logoA: 'https://upload.wikimedia.org/wikipedia/en/thumb/4/4d/FUT_Esports_logo.svg/512px-FUT_Esports_logo.svg.png',
-    logoB: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/f0/MOUZ_2023_allmode.png/512px-MOUZ_2023_allmode.png',
+    logoA: 'https://liquipedia.net/commons/images/9/90/Futbolist_2021_lightmode.png',
+    logoB: 'https://liquipedia.net/commons/images/a/a5/MOUZ_2021_full_allmode.png',
     oddsA: 3.09,
     oddsB: 1.39,
     correct: 'A'
@@ -29,8 +29,8 @@ const matches = [
   {
     teamA: 'Team Spirit',
     teamB: 'Astralis',
-    logoA: 'https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Team_Spirit_2023.svg/512px-Team_Spirit_2023.svg.png',
-    logoB: 'https://upload.wikimedia.org/wikipedia/en/thumb/2/24/Astralis_logo.svg/512px-Astralis_logo.svg.png',
+    logoA: 'https://liquipedia.net/commons/images/f/f2/Team_Spirit_2022_full_lightmode.png',
+    logoB: 'https://liquipedia.net/commons/images/b/b5/Astralis_2020_full_allmode.png',
     oddsA: 1.21,
     oddsB: 4.605,
     correct: 'B'
