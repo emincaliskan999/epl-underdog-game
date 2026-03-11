@@ -4,93 +4,86 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Guess the Underdog</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="app-shell">
-    <header class="topbar">
-      <div>
-        <p class="eyebrow">1XBET CONTENT GAME</p>
-        <h1>Guess the Underdog</h1>
-        <p class="subtitle">Pick the team with the higher odds in each EPL playoff matchup.</p>
-      </div>
-      <div class="progress-wrap">
-        <span id="progressText">Match 1 / 4</span>
-        <div class="progress-bar">
-          <div id="progressFill" class="progress-fill"></div>
-        </div>
-      </div>
-    </header>
+    <div class="background-glow glow-1"></div>
+    <div class="background-glow glow-2"></div>
 
-    <main id="gameScreen" class="game-screen">
-      <section class="match-card">
-        <div class="question-row">
-          <span class="badge">Round <span id="roundNumber">1</span></span>
-          <p class="question">Who is the underdog?</p>
-        </div>
-
-        <div class="teams-grid">
-          <button class="team-card" id="teamAButton" data-side="A">
-            <div class="team-logo-wrap">
-              <img id="teamALogo" class="team-logo" alt="Team A logo" />
+    <main class="game-container">
+      <section id="gameScreen" class="screen">
+        <div class="topbar">
+          <div class="round-badge">Match <span id="roundNumber">1</span></div>
+          <div class="progress-wrap">
+            <div class="progress-text" id="progressText">Match 1 / 4</div>
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill"></div>
             </div>
-            <div class="team-copy">
-              <span class="team-label">Team A</span>
-              <h2 id="teamAName">Team Spirit</h2>
+          </div>
+        </div>
+
+        <header class="hero">
+          <p class="eyebrow">1XBET Odds Challenge</p>
+          <h1>Who is the underdog?</h1>
+          <p class="subtitle">
+            Choose the team with the higher odds.
+          </p>
+        </header>
+
+        <section class="matchup-grid">
+          <button class="team-card" id="teamAButton">
+            <div class="team-card-inner" id="teamAInner">
+              <div class="team-face team-front">
+                <div class="team-visual">
+                  <img id="teamALogo" class="team-logo" src="" alt="Team A logo" />
+                </div>
+                <div class="team-name" id="teamAName">Team A</div>
+              </div>
+
+              <div class="team-face team-back">
+                <div class="odds-label">1XBET Odds</div>
+                <div class="odds-value" id="teamAOdds">2.20</div>
+                <div class="team-name small" id="teamANameBack">Team A</div>
+              </div>
             </div>
           </button>
 
           <div class="versus">VS</div>
 
-          <button class="team-card" id="teamBButton" data-side="B">
-            <div class="team-logo-wrap">
-              <img id="teamBLogo" class="team-logo" alt="Team B logo" />
-            </div>
-            <div class="team-copy">
-              <span class="team-label">Team B</span>
-              <h2 id="teamBName">Astralis</h2>
+          <button class="team-card" id="teamBButton">
+            <div class="team-card-inner" id="teamBInner">
+              <div class="team-face team-front">
+                <div class="team-visual">
+                  <img id="teamBLogo" class="team-logo" src="" alt="Team B logo" />
+                </div>
+                <div class="team-name" id="teamBName">Team B</div>
+              </div>
+
+              <div class="team-face team-back">
+                <div class="odds-label">1XBET Odds</div>
+                <div class="odds-value" id="teamBOdds">1.69</div>
+                <div class="team-name small" id="teamBNameBack">Team B</div>
+              </div>
             </div>
           </button>
-        </div>
+        </section>
 
         <div id="feedbackBox" class="feedback-box hidden"></div>
 
-        <div id="oddsPanel" class="odds-panel hidden">
-          <div class="odds-head">
-            <span>1XBET Odds</span>
-            <span class="odds-head-mini">Revealed after the guess</span>
-          </div>
-          <div class="odds-grid">
-            <div class="odds-item">
-              <span id="oddsAName">Team A</span>
-              <strong id="oddsAValue">2.20</strong>
-            </div>
-            <div class="odds-item">
-              <span id="oddsBName">Team B</span>
-              <strong id="oddsBValue">1.69</strong>
-            </div>
-          </div>
-        </div>
-
-        <div class="bottom-actions">
-          <button id="revealButton" class="secondary-button hidden">Reveal Odds</button>
-          <button id="nextButton" class="primary-button hidden">Next Match</button>
-          <button id="restartButton" class="secondary-button hidden">Play Again</button>
+        <div class="controls">
+          <button id="nextButton" class="action-button hidden">Next Match</button>
         </div>
       </section>
-    </main>
 
-    <section id="endScreen" class="end-screen hidden">
-      <div class="end-card">
-        <p class="eyebrow">FINAL RESULT</p>
-        <h2>Your score: <span id="finalScore">0/4</span></h2>
-        <p id="finalMessage" class="final-message"></p>
-        <button id="restartFromEnd" class="primary-button">Restart Game</button>
-      </div>
-    </section>
+      <section id="endScreen" class="screen hidden end-screen">
+        <p class="eyebrow">Challenge Complete</p>
+        <h2>Your Score</h2>
+        <div class="final-score" id="finalScore">0/4</div>
+        <p class="final-message" id="finalMessage">Run it back and beat the odds.</p>
+        <button id="restartFromEnd" class="action-button">Play Again</button>
+      </section>
+    </main>
   </div>
 
   <script src="script.js"></script>
