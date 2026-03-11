@@ -2,8 +2,8 @@ const matches = [
   {
     teamA: 'The MongolZ',
     teamB: 'Natus Vincere',
-    logoA: 'https://liquipedia.net/commons/images/2/2b/The_MongolZ_2024_03_allmode.png',
-    logoB: 'https://liquipedia.net/commons/images/3/3f/Natus_Vincere_2021_lightmode.png',
+    logoA: 'logos/themongolz.png',
+    logoB: 'logos/navi.png',
     oddsA: 2.207,
     oddsB: 1.69,
     correct: 'A'
@@ -11,8 +11,8 @@ const matches = [
   {
     teamA: 'Legacy',
     teamB: 'Aurora Gaming',
-    logoA: 'https://liquipedia.net/commons/images/9/98/Legacy_full_lightmode.png',
-    logoB: 'https://liquipedia.net/commons/images/3/32/Aurora_Gaming_2025_full_allmode.png',
+    logoA: 'logos/legacy.png',
+    logoB: 'logos/aurora.png',
     oddsA: 2.02,
     oddsB: 1.81,
     correct: 'A'
@@ -20,8 +20,8 @@ const matches = [
   {
     teamA: 'FUT Esports',
     teamB: 'MOUZ',
-    logoA: 'https://liquipedia.net/commons/images/9/90/Futbolist_2021_lightmode.png',
-    logoB: 'https://liquipedia.net/commons/images/a/a5/MOUZ_2021_full_allmode.png',
+    logoA: 'logos/fut.png',
+    logoB: 'logos/mouz.png',
     oddsA: 3.09,
     oddsB: 1.39,
     correct: 'A'
@@ -29,8 +29,8 @@ const matches = [
   {
     teamA: 'Team Spirit',
     teamB: 'Astralis',
-    logoA: 'https://liquipedia.net/commons/images/f/f2/Team_Spirit_2022_full_lightmode.png',
-    logoB: 'https://liquipedia.net/commons/images/b/b5/Astralis_2020_full_allmode.png',
+    logoA: 'logos/spirit.png',
+    logoB: 'logos/astralis.png',
     oddsA: 1.21,
     oddsB: 4.605,
     correct: 'B'
