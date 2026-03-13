@@ -40,6 +40,8 @@ const matches = [
 let currentIndex = 0;
 let score = 0;
 let hasAnswered = false;
+let countAnimationFrameA = null;
+let countAnimationFrameB = null;
 
 const teamAButton = document.getElementById('teamAButton');
 const teamBButton = document.getElementById('teamBButton');
@@ -58,8 +60,53 @@ const finalScore = document.getElementById('finalScore');
 const finalMessage = document.getElementById('finalMessage');
 const restartFromEnd = document.getElementById('restartFromEnd');
 
+const correctSound = new Audio('sounds/correct.mp3');
+const wrongSound = new Audio('sounds/wrong.mp3');
+
+correctSound.preload = 'auto';
+wrongSound.preload = 'auto';
+
 function formatOdds(value) {
   return value.toFixed(3).replace(/0+$/, '').replace(/\.$/, '');
+}
+
+function safePlay(audio) {
+  try {
+    audio.currentTime = 0;
+    const playPromise = audio.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(() => {});
+    }
+  } catch (error) {}
+}
+
+function showFlash(type) {
+  const overlay = document.createElement('div');
+  overlay.className = `flash-overlay ${type}`;
+  document.body.appendChild(overlay);
+
+  setTimeout(() => {
+    overlay.remove();
+  }, 500);
+}
+
+function animateOdds(element, targetValue, duration = 900) {
+  const startTime = performance.now();
+
+  function step(currentTime) {
+    const progress = Math.min((currentTime - startTime) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const currentValue = targetValue * eased;
+    element.textContent = formatOdds(currentValue);
+
+    if (progress < 1) {
+      return requestAnimationFrame(step);
+    }
+    element.textContent = formatOdds(targetValue);
+    return null;
+  }
+
+  return requestAnimationFrame(step);
 }
 
 function resetVisualState() {
@@ -73,6 +120,12 @@ function resetVisualState() {
   feedbackBox.className = 'feedback-box hidden';
   feedbackBox.textContent = '';
   nextButton.classList.add('hidden');
+
+  if (countAnimationFrameA) cancelAnimationFrame(countAnimationFrameA);
+  if (countAnimationFrameB) cancelAnimationFrame(countAnimationFrameB);
+
+  teamAOdds.textContent = '0.00';
+  teamBOdds.textContent = '0.00';
 }
 
 function loadMatch() {
@@ -88,9 +141,11 @@ function loadMatch() {
   teamBLogo.src = match.logoB;
   teamALogo.alt = `${match.teamA} logo`;
   teamBLogo.alt = `${match.teamB} logo`;
+}
 
-  teamAOdds.textContent = formatOdds(match.oddsA);
-  teamBOdds.textContent = formatOdds(match.oddsB);
+function revealAnimatedOdds(match) {
+  countAnimationFrameA = animateOdds(teamAOdds, match.oddsA, 950);
+  countAnimationFrameB = animateOdds(teamBOdds, match.oddsB, 950);
 }
 
 function handleSelection(side) {
@@ -104,9 +159,6 @@ function handleSelection(side) {
   teamAButton.disabled = true;
   teamBButton.disabled = true;
 
-  teamAButton.classList.add('flipped');
-  teamBButton.classList.add('flipped');
-
   const chosenButton = side === 'A' ? teamAButton : teamBButton;
   const correctButton = match.correct === 'A' ? teamAButton : teamBButton;
 
@@ -115,16 +167,27 @@ function handleSelection(side) {
     chosenButton.classList.add('correct');
     feedbackBox.textContent = 'Correct. You spotted the underdog.';
     feedbackBox.className = 'feedback-box good';
+    showFlash('good');
+    safePlay(correctSound);
   } else {
     chosenButton.classList.add('wrong');
     correctButton.classList.add('correct');
     const correctTeam = match.correct === 'A' ? match.teamA : match.teamB;
     feedbackBox.textContent = `${correctTeam} was the underdog with the higher odds.`;
     feedbackBox.className = 'feedback-box bad';
+    showFlash('bad');
+    safePlay(wrongSound);
   }
 
+  teamAButton.classList.add('flipped');
+  teamBButton.classList.add('flipped');
+
+  setTimeout(() => {
+    revealAnimatedOdds(match);
+  }, 240);
+
   if (currentIndex === matches.length - 1) {
-    setTimeout(showFinalScreen, 2800);
+    setTimeout(showFinalScreen, 3400);
   } else {
     nextButton.classList.remove('hidden');
   }
