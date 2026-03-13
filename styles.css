@@ -125,6 +125,19 @@ body {
   margin-bottom: 28px;
 }
 
+.top-sponsor {
+  display: block;
+  width: 150px;
+  max-width: 42vw;
+  margin: 0 auto 16px;
+  opacity: 0.95;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.35));
+}
+
+.end-sponsor {
+  margin-bottom: 18px;
+}
+
 .eyebrow {
   margin: 0 0 8px;
   color: #14a0ff;
@@ -174,6 +187,7 @@ body {
   perspective: 1200px;
   border-radius: 26px;
   min-width: 0;
+  position: relative;
 }
 
 .team-card:disabled {
@@ -260,6 +274,7 @@ body {
   font-weight: 900;
   color: #14a0ff;
   text-shadow: 0 0 22px rgba(20, 160, 255, 0.35);
+  min-height: 1em;
 }
 
 .sponsor-logo {
@@ -366,6 +381,23 @@ body {
   line-height: 1.5;
 }
 
+.flash-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  animation: flashFade 0.45s ease-out forwards;
+}
+
+.flash-overlay.good {
+  background: rgba(20, 160, 255, 0.16);
+}
+
+.flash-overlay.bad {
+  background: rgba(255, 59, 59, 0.16);
+}
+
 @keyframes pulseGood {
   0% { transform: scale(1); }
   40% { transform: scale(1.018); }
@@ -389,6 +421,18 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes flashFade {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
@@ -420,6 +464,11 @@ body {
 
   .hero {
     margin-bottom: 18px;
+  }
+
+  .top-sponsor {
+    width: 120px;
+    margin-bottom: 12px;
   }
 
   .hero h1,
