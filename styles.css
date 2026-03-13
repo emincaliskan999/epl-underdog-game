@@ -122,7 +122,7 @@ body {
 
 .hero {
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 16px;
 }
 
 .top-sponsor {
@@ -150,15 +150,15 @@ body {
 .hero h1,
 .end-screen h2 {
   margin: 0;
-  font-size: clamp(32px, 5vw, 54px);
+  font-size: clamp(30px, 4.2vw, 46px);
   line-height: 1;
 }
 
 .subtitle {
-  margin: 14px auto 0;
+  margin: 10px auto 0;
   max-width: 620px;
   color: rgba(255, 255, 255, 0.72);
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .matchup-grid {
@@ -197,7 +197,7 @@ body {
 .team-card-inner {
   position: relative;
   width: 100%;
-  min-height: 560px;
+  min-height: 420px;
   transform-style: preserve-3d;
   transition: transform 0.7s ease;
   border-radius: 26px;
@@ -241,11 +241,11 @@ body {
 .team-visual {
   width: 100%;
   height: 100%;
-  min-height: 420px;
+  min-height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px;
+  padding: 10px;
 }
 
 .team-logo {
@@ -269,7 +269,7 @@ body {
 }
 
 .odds-value {
-  font-size: clamp(64px, 9vw, 108px);
+  font-size: clamp(54px, 7vw, 84px);
   line-height: 1;
   font-weight: 900;
   color: #14a0ff;
@@ -278,9 +278,9 @@ body {
 }
 
 .sponsor-logo {
-  margin-top: 24px;
-  width: 160px;
-  max-width: 60%;
+  margin-top: 16px;
+  width: 120px;
+  max-width: 50%;
   opacity: 0.95;
   filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.35));
   transition: transform 0.3s ease;
@@ -313,10 +313,10 @@ body {
 }
 
 .feedback-box {
-  margin-top: 26px;
-  padding: 16px 18px;
+  margin-top: 16px;
+  padding: 14px 16px;
   border-radius: 18px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   text-align: center;
   animation: fadeUp 0.35s ease;
@@ -335,7 +335,7 @@ body {
 }
 
 .controls {
-  margin-top: 24px;
+  margin-top: 14px;
   display: flex;
   justify-content: center;
 }
@@ -607,5 +607,10 @@ body {
   .sponsor-logo {
     width: 78px;
     margin-top: 10px;
+  }
+
+  .screen {
+  max-height: 100vh;
+  overflow-y: auto;
   }
 }
