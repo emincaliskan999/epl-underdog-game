@@ -127,11 +127,11 @@ body {
 
 .top-sponsor {
   display: block;
-  width: 320px;
-  max-width: 70vw;
-  margin: 0 auto 22px;
+  width: 260px;
+  max-width: 60vw;
+  margin: 0 auto 14px;
   opacity: 0.98;
-  filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.45));
+  filter: drop-shadow(0 16px 30px rgba(0,0,0,0.45));
 }
 
 .end-sponsor {
