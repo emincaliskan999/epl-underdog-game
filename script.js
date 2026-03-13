@@ -40,8 +40,6 @@ const matches = [
 let currentIndex = 0;
 let score = 0;
 let hasAnswered = false;
-let countAnimationFrameA = null;
-let countAnimationFrameB = null;
 
 const teamAButton = document.getElementById('teamAButton');
 const teamBButton = document.getElementById('teamBButton');
@@ -90,25 +88,6 @@ function showFlash(type) {
   }, 500);
 }
 
-function animateOdds(element, targetValue, duration = 900) {
-  const startTime = performance.now();
-
-  function step(currentTime) {
-    const progress = Math.min((currentTime - startTime) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const currentValue = targetValue * eased;
-    element.textContent = formatOdds(currentValue);
-
-    if (progress < 1) {
-      return requestAnimationFrame(step);
-    }
-    element.textContent = formatOdds(targetValue);
-    return null;
-  }
-
-  return requestAnimationFrame(step);
-}
-
 function resetVisualState() {
   hasAnswered = false;
 
@@ -120,9 +99,6 @@ function resetVisualState() {
   feedbackBox.className = 'feedback-box hidden';
   feedbackBox.textContent = '';
   nextButton.classList.add('hidden');
-
-  if (countAnimationFrameA) cancelAnimationFrame(countAnimationFrameA);
-  if (countAnimationFrameB) cancelAnimationFrame(countAnimationFrameB);
 
   teamAOdds.textContent = '0.00';
   teamBOdds.textContent = '0.00';
@@ -143,9 +119,9 @@ function loadMatch() {
   teamBLogo.alt = `${match.teamB} logo`;
 }
 
-function revealAnimatedOdds(match) {
-  countAnimationFrameA = animateOdds(teamAOdds, match.oddsA, 950);
-  countAnimationFrameB = animateOdds(teamBOdds, match.oddsB, 950);
+function revealStaticOdds(match) {
+  teamAOdds.textContent = formatOdds(match.oddsA);
+  teamBOdds.textContent = formatOdds(match.oddsB);
 }
 
 function handleSelection(side) {
@@ -183,7 +159,7 @@ function handleSelection(side) {
   teamBButton.classList.add('flipped');
 
   setTimeout(() => {
-    revealAnimatedOdds(match);
+    revealStaticOdds(match);
   }, 240);
 
   if (currentIndex === matches.length - 1) {
