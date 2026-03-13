@@ -47,7 +47,6 @@ const teamALogo = document.getElementById('teamALogo');
 const teamBLogo = document.getElementById('teamBLogo');
 const teamAOdds = document.getElementById('teamAOdds');
 const teamBOdds = document.getElementById('teamBOdds');
-const roundNumber = document.getElementById('roundNumber');
 const progressText = document.getElementById('progressText');
 const progressFill = document.getElementById('progressFill');
 const feedbackBox = document.getElementById('feedbackBox');
@@ -109,7 +108,6 @@ function loadMatch() {
 
   resetVisualState();
 
-  roundNumber.textContent = currentIndex + 1;
   progressText.textContent = `Match ${currentIndex + 1} / ${matches.length}`;
   progressFill.style.width = `${((currentIndex + 1) / matches.length) * 100}%`;
 
